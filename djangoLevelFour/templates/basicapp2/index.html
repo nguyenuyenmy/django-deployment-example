@@ -1,0 +1,7 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+{% extends "basicapp2/base.html" %}
+    {% block body_block %}
+        <h1>WELCOME TO INDEX!</h1>
+        <h1>{{ text|cut:'world' }}</h1>
+        <h1>{{ number|add:"150" }}</h1>
+    {% endblock %}
