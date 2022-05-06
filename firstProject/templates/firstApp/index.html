@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Django Level 2</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+</head>
+<body>
+
+<h1>Hi welcome to Django Level two!</h1>
+<h2>Here are your access records:</h2>
+
+<div class="djangtwo">
+    {% if access_records %}
+    <table>
+        <thead>
+            <th>Site name</th>
+            <th>Date Accessed</th>
+        </thead>
+        {% for acc in access_records %}
+        <tr>
+            <td> {{ acc.name }}</td>
+            <td> {{ acc.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>NO ACCESS RECORDS FOUND! </p>
+    {% endif %}
+
+</div>
+    
+</body>
+</html>
