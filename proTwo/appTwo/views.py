@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from appTwo.forms import newUserForm
+from appTwo.models import User
 
 # Create your views here.
 def homepage(request):
@@ -11,6 +12,12 @@ def help(request):
     return render(request, 'appTwo/help.html', context=my_dict)
 
 def users(request):
+    user_list = User.objects.order_by('firstName')
+    user_dict = {'users': user_list}
+    return render(request, 'appTwo/users.html', context=user_dict)
+
+
+def formpage(request):
     form = newUserForm()
     if request.method == "POST":
         form = newUserForm(request.POST)
@@ -21,4 +28,4 @@ def users(request):
         else:
             print('ERROR FORM INVALID')
 
-    return render(request, 'appTwo/users.html', {'form':form})
+    return render(request, 'appTwo/formpage.html', {'form':form})

@@ -20,7 +20,8 @@ from appTwo import views
 
 urlpatterns = [
     path('', views.homepage, name = 'homepage'),
-    path('formpage/', views.users, name = 'users'),
-    #path('users/', include('appTwo.urls')),
+    path('users/', views.users, name = 'users'),
+    path('help/', views.help, name = 'help'),
     path('admin/', admin.site.urls),
+    path('formpage/', views.formpage, name = 'formpage'),
 ]
